@@ -6,22 +6,46 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      imagesArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      imagesArray: [
+        {
+          height: 100
+        },
+        {
+          height: 200
+        },
+        {
+          height: 250
+        },
+        {
+          height: 300
+        },
+        {
+          height: 200
+        },
+        {
+          height: 500
+        },
+        {
+          height: 200
+        },
+        {
+          height: 200
+        },
+        {
+          height: 250
+        },
+        {
+          height: 700
+        },
+        {
+          height: 200
+        },
+        {
+          height: 150
+        }
+      ]
     };
   }
-
-  componentDidMount() {
-    // this.createImages();
-  }
-
-  // createImages = () => {
-  //   console.log("create images");
-  //   let width = 236;
-  //   let height = 100;
-
-  //   const newArray = this.state.imagesArray.push();
-  //   this.setState({ imagesArray: newArray });
-  // };
 
   render() {
     return (
