@@ -4,75 +4,56 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      columns: [
-        [1, 4, 6],
-        [2, 3, 5, 6, 5],
-        [3, 4, 5, 5],
-        [4, 4, 4],
-        [5, 67, 3],
-        [6, 3, 2]
-      ],
+      // columns: [[30, 4], [8, 4], [2, 5, 7], [9], [90, 34], [9]],
+      columns: [[], [], [], [], [], []],
       imagesArray: props.imagesArray
     };
   }
 
   componentDidMount() {
-    this.sumLengths();
+    // console.log("this.state.imagesArray", this.state.imagesArray);
+    let index = 0;
+    let columns = this.state.columns;
+    this.props.imagesArray.forEach(image => {
+      // console.log("image", image);
+      index = this.getShortestColumn(columns);
+      columns[index].push(image);
+      // console.log("this.state.columns", this.state.columns);
+    });
+    this.setState({ columns: columns });
   }
 
-  sumLengths = () => {
-    const imagesArray = this.state.imagesArray;
-    let shortestColumnLength = Infinity;
-    let shortestColumnLengthIndex = 0;
-    let columnSums = [0, 0, 0, 0, 0, 0];
+  getShortestColumn = columns => {
+    let columnTotals = [0, 0, 0, 0, 0, 0];
 
-    // sum column items
-    for (let i = 0; i < this.state.columns.length; i++) {
-      // console.log("this.state.columns[i]", this.state.columns[i]);
-      for (let j = 0; j < this.state.columns[i].length; j++) {
-        // console.log("this.state.columns[i][j]", this.state.columns[i][j]);
-        if (i === 0) {
-          columnSums[0] += this.state.columns[i][j];
-        } else if (i === 1) {
-          columnSums[1] += this.state.columns[i][j];
-        } else if (i === 2) {
-          columnSums[2] += this.state.columns[i][j];
-        } else if (i === 3) {
-          columnSums[3] += this.state.columns[i][j];
-        } else if (i === 4) {
-          columnSums[4] += this.state.columns[i][j];
-        } else {
-          columnSums[5] += this.state.columns[i][j];
-        }
+    for (let i = 0; i < columns.length; i++) {
+      for (let j = 0; j < columns[i].length; j++) {
+        // console.log("columns[i][j].height", columns[i][j].height);
+        columnTotals[i] += columns[i][j].height;
       }
     }
-    console.log("columnSums", columnSums);
 
-    // find first shortest column
-    for (let i = 0; i < columnSums.length; i++) {
-      if (columnSums[i] < shortestColumnLength) {
-        shortestColumnLength = columnSums[i];
-        shortestColumnLengthIndex = [i];
+    let shortest = Infinity;
+    let index = 0;
+
+    for (let i = 0; i < columnTotals.length; i++) {
+      if (columnTotals[i] < shortest) {
+        shortest = columnTotals[i];
+        index = i;
       }
     }
-    console.log("shortestColumnLength", shortestColumnLength);
-    console.log("shortestColumnLengthIndex", shortestColumnLengthIndex);
 
-    // insert new numbers into columns;
-    let assignedColumn = this.state.columns;
-    for (let i = 0; i < imagesArray.length; i++) {
-      assignedColumn[shortestColumnLengthIndex].push(imagesArray[i]);
-    }
-    console.log("assignedColumn", assignedColumn);
+    return index;
   };
 
   render() {
-    // console.log("this.state.imagesArray", this.state.imagesArray);
+    let columns = this.state.columns;
+    console.log("columns", columns);
 
     return (
       <div style={container}>
         <div style={columnMain}>
-          {this.state.columns.map((image, i) => (
+          {columns.map((image, i) => (
             <div style={{ height: image.height, ...column }} key={i}>
               hi
             </div>
