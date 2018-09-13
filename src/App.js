@@ -17,7 +17,7 @@ class App extends Component {
           height: 250
         },
         {
-          height: 300
+          height: 420
         },
         {
           height: 200
@@ -26,7 +26,7 @@ class App extends Component {
           height: 500
         },
         {
-          height: 200
+          height: 360
         },
         {
           height: 200
@@ -35,13 +35,52 @@ class App extends Component {
           height: 250
         },
         {
-          height: 700
+          height: 200
         },
         {
           height: 200
         },
         {
           height: 150
+        },
+        {
+          height: 300
+        },
+        {
+          height: 290
+        },
+        {
+          height: 650
+        },
+        {
+          height: 350
+        },
+        {
+          height: 550
+        },
+        {
+          height: 450
+        },
+        {
+          height: 250
+        },
+        {
+          height: 650
+        },
+        {
+          height: 430
+        },
+        {
+          height: 650
+        },
+        {
+          height: 180
+        },
+        {
+          height: 350
+        },
+        {
+          height: 130
         }
       ]
     };

@@ -50,9 +50,10 @@ class Grid extends Component {
           <div style={columnMain} key={i}>
             {column.map((image, i) => {
               return (
-                <div style={{ height: image.height, ...singleColumn }} key={i}>
-                  hi
-                </div>
+                <div
+                  style={{ height: image.height, ...singleColumn }}
+                  key={i}
+                />
               );
             })}
           </div>
@@ -64,7 +65,8 @@ class Grid extends Component {
 
 const container = {
   display: "flex",
-  justifyContent: "center"
+  justifyContent: "center",
+  paddingTop: "40px"
 };
 
 const columnMain = {
@@ -75,7 +77,8 @@ const columnMain = {
 const singleColumn = {
   width: "236px",
   marginBottom: "20px",
-  backgroundColor: "gray"
+  backgroundColor: "#A9A9A9",
+  borderRadius: "8px"
 };
 
 export default Grid;
