@@ -53,37 +53,47 @@ class Grid extends Component {
     return (
       <div style={container}>
         <div style={columnMain}>
-          {columns.map((image, i) => (
+          {columns[0].map((image, i) => (
             <div style={{ height: image.height, ...column }} key={i}>
               hi
             </div>
           ))}
         </div>
-        {/* <div style={columnMain}>
-          {this.state.column2.map(image => (
-            <div style={column}>{image}</div>
+        <div style={columnMain}>
+          {columns[1].map((image, i) => (
+            <div style={{ height: image.height, ...column }} key={i}>
+              hi
+            </div>
           ))}
         </div>
         <div style={columnMain}>
-          {this.state.column3.map(image => (
-            <div style={column}>{image}</div>
+          {columns[2].map((image, i) => (
+            <div style={{ height: image.height, ...column }} key={i}>
+              hi
+            </div>
           ))}
         </div>
         <div style={columnMain}>
-          {this.state.column4.map(image => (
-            <div style={column}>{image}</div>
+          {columns[3].map((image, i) => (
+            <div style={{ height: image.height, ...column }} key={i}>
+              hi
+            </div>
           ))}
         </div>
         <div style={columnMain}>
-          {this.state.column5.map(image => (
-            <div style={column}>{image}</div>
+          {columns[4].map((image, i) => (
+            <div style={{ height: image.height, ...column }} key={i}>
+              hi
+            </div>
           ))}
         </div>
         <div style={columnMain}>
-          {this.state.column6.map(image => (
-            <div style={column}>{image}</div>
+          {columns[5].map((image, i) => (
+            <div style={{ height: image.height, ...column }} key={i}>
+              hi
+            </div>
           ))}
-        </div> */}
+        </div>
       </div>
     );
   }
